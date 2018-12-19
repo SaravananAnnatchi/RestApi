@@ -6,17 +6,20 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import testPackage.BaseClass;
 
+import java.util.List;
+
 public class ElementHelper {
     BaseClass baseClass = new BaseClass();
     JsonPath jsonPath;
     String response;
 
-    public ElementHelper(Response res) {
-        response = res.toString();
-        jsonPath = baseClass.getJsonPath(res);
+    public ElementHelper(String res) {
+        response = res;
+        jsonPath = baseClass.getJsonPathString(res);
+        System.out.println(jsonPath);
     }
 
-    public static ElementHelper getInstance(Response res){
+    public static ElementHelper getInstance(String res){
         return new ElementHelper(res);
     }
 

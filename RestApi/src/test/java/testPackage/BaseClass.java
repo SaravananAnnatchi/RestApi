@@ -32,10 +32,6 @@ public class BaseClass {
     public static ResponseSpecification RESPONSE_SPEC;
 
 
-
-
-
-
     public static void setEndPoint(String epoint) {
         ENDPOINT = epoint;
     }
@@ -98,10 +94,14 @@ public class BaseClass {
         } else {
             System.out.println("Type is not supported");
         }
-        System.out.println("Response is "+response);
-        response.then().log().all();
-        response.then().spec(RESPONSE_SPEC);
+        response.then().log().ifError();
+        response.then().spec(RESPONSE_SPEC).extract().response();
+        System.out.println(response);
         return response;
+    }
+
+    public static void extractResponse(){
+   //     given().then().
     }
 
     public static JsonPath getJsonPath(Response res) {

@@ -111,16 +111,22 @@ public class FetchDA extends BaseClass {
         setEndPoint(Endpoints.FETCHDA_API);
         res = getResponse(createQueryParam(reqSpec, parameter), "get");
         jsonPath = getJsonPath(res);
+        String response = res.asString();
         String product = jsonPath.get("displayArticles[0].productNumber");
         List test = jsonPath.getList("displayArticles[10].sizes.stockSize");
         String product1 =jsonPath.and().getString("displayArticles[0].productNumber");
         boolean product2 =jsonPath.getBoolean("displayArticles[0].priceInfo.onSale");
         double product3 =jsonPath.getDouble("displayArticles[0].priceInfo.price");
-        System.out.println(jsonPath.getJsonObject("displayArticles[0]"));
+        //System.out.println(jsonPath.getJsonObject("displayArticles[0]"));
         //    jsonPath.get();
         System.out.println("---------this is list of articles---- "+product3);
        // Assert.assertEquals(test,hasItem(050));
-        fetchDAService.doDisplayProductFieldsExist(res);
+        boolean present = fetchDAService.doDisplayProductFieldsExist(response);
+        System.out.println(present);
+        Assert.assertTrue(present);
+        boolean present1 = fetchDAService.doAvailableSizeInfoExist(response);
+        System.out.println(present1);
+        Assert.assertTrue(present1);
     }
 
     @Test
