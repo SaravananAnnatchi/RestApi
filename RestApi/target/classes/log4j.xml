@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//LOGGER" "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration debug="false" xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <!-- Configuration to exclude the wiremock logging from the normal flow and store it in a different file. -->
+    <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{ABSOLUTE} %5p %c{1}:%L - %m%n" />
+        </layout>
+    </appender>
+
+    <appender name="wiremock-logger" class="org.apache.log4j.FileAppender">
+        <!--<param name="file" value="target/reports/wiremock.log"/>-->
+        <param name="file" value="wiremock.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{ABSOLUTE} %5p %c{1}:%L - %m%n" />
+        </layout>
+    </appender>
+
+    <logger name="com.hm">
+        <level value="INFO"/>
+    </logger>
+
+    <logger name="org.springframework.test.context.support.DefaultTestContextBootstrapper">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="com.sun.xml.internal.ws.policy">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="com.netflix.servo">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="com.github.tomakehurst.wiremock.common.Log4jNotifier" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="wiremock-logger"/>
+    </logger>
+
+    <root>
+        <level value="INFO" />
+        <appender-ref ref="stdout" />
+    </root>
+
+</log4j:configuration>

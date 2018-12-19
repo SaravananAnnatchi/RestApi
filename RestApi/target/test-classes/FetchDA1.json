@@ -1,0 +1,608 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "totalNrOfHits",
+    "displayArticles"
+  ],
+  "properties": {
+    "totalNrOfHits": {
+      "$id": "#/properties/totalNrOfHits",
+      "type": "integer",
+      "title": "The Totalnrofhits Schema",
+      "default": 0,
+      "examples": [
+        15
+      ]
+    },
+    "displayArticles": {
+      "$id": "#/properties/displayArticles",
+      "type": "array",
+      "title": "The Displayarticles Schema",
+      "items": {
+        "$id": "#/properties/displayArticles/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "productNumber",
+          "castorProductNumber",
+          "castorArticleNumber",
+          "articleCode",
+          "name",
+          "availableSizeInfo",
+          "primaryImage",
+          "webUrl",
+          "availableSwatches",
+          "trackingInfo",
+          "additionalImages",
+          "textualMarkers",
+          "promoMarker",
+          "productMarker",
+          "priceInfo",
+          "stockState",
+          "assortmentState",
+          "colourDescription",
+          "activityArticleNumber",
+          "sizes"
+        ],
+        "properties": {
+          "productNumber": {
+            "$id": "#/properties/displayArticles/items/properties/productNumber",
+            "type": "string",
+            "title": "The Productnumber Schema",
+            "default": "",
+            "examples": [
+              "92405"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "castorProductNumber": {
+            "$id": "#/properties/displayArticles/items/properties/castorProductNumber",
+            "type": "string",
+            "title": "The Castorproductnumber Schema",
+            "default": "",
+            "examples": [
+              "0107713"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "castorArticleNumber": {
+            "$id": "#/properties/displayArticles/items/properties/castorArticleNumber",
+            "type": "string",
+            "title": "The Castorarticlenumber Schema",
+            "default": "",
+            "examples": [
+              "002"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "articleCode": {
+            "$id": "#/properties/displayArticles/items/properties/articleCode",
+            "type": "string",
+            "title": "The Articlecode Schema",
+            "default": "",
+            "examples": [
+              "92405-A"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "name": {
+            "$id": "#/properties/displayArticles/items/properties/name",
+            "type": "string",
+            "title": "The Name Schema",
+            "default": "",
+            "examples": [
+              "Leinen-Kopfkissenbezug"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "availableSizeInfo": {
+            "$id": "#/properties/displayArticles/items/properties/availableSizeInfo",
+            "type": "array",
+            "title": "The Availablesizeinfo Schema",
+            "items": {
+              "$id": "#/properties/displayArticles/items/properties/availableSizeInfo/items",
+              "type": "object",
+              "title": "The Items Schema",
+              "required": [
+                "stockSize",
+                "sizeName"
+              ],
+              "properties": {
+                "stockSize": {
+                  "$id": "#/properties/displayArticles/items/properties/availableSizeInfo/items/properties/stockSize",
+                  "type": "string",
+                  "title": "The Stocksize Schema",
+                  "default": "",
+                  "examples": [
+                    "080"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "sizeName": {
+                  "$id": "#/properties/displayArticles/items/properties/availableSizeInfo/items/properties/sizeName",
+                  "type": "string",
+                  "title": "The Sizename Schema",
+                  "default": "",
+                  "examples": [
+                    "80x80"
+                  ],
+                  "pattern": "^(.*)$"
+                }
+              }
+            }
+          },
+          "primaryImage": {
+            "$id": "#/properties/displayArticles/items/properties/primaryImage",
+            "type": "object",
+            "title": "The Primaryimage Schema",
+            "required": [
+              "type",
+              "url",
+              "mediaType",
+              "facing"
+            ],
+            "properties": {
+              "type": {
+                "$id": "#/properties/displayArticles/items/properties/primaryImage/properties/type",
+                "type": "string",
+                "title": "The Type Schema",
+                "default": "",
+                "examples": [
+                  "STILL_LIFE_FRONT"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "url": {
+                "$id": "#/properties/displayArticles/items/properties/primaryImage/properties/url",
+                "type": "string",
+                "title": "The Url Schema",
+                "default": "",
+                "examples": [
+                  "//lp.hm.com/hmprod?set=source%5B%2Fmodel%2F2018%2FI00%200107713%20002%2099%20ffd6ee2b52dfed1c7e3a720749153809fe2c7b01.jpg%5D%2Cmedia_type%5BDESCRIPTIVE_STILL_LIFE%5D%2Ctshirt_size%5BS%5D%2Cquality%5BM%5D%2Chmver%5B2%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "mediaType": {
+                "$id": "#/properties/displayArticles/items/properties/primaryImage/properties/mediaType",
+                "type": "string",
+                "title": "The Mediatype Schema",
+                "default": "",
+                "examples": [
+                  "DESCRIPTIVE_STILL_LIFE"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "facing": {
+                "$id": "#/properties/displayArticles/items/properties/primaryImage/properties/facing",
+                "type": "string",
+                "title": "The Facing Schema",
+                "default": "",
+                "examples": [
+                  "FRONT"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          },
+          "webUrl": {
+            "$id": "#/properties/displayArticles/items/properties/webUrl",
+            "type": "string",
+            "title": "The Weburl Schema",
+            "default": "",
+            "examples": [
+              "https://admin-www.hm.com/de/product/92405?article=92405-A"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "availableSwatches": {
+            "$id": "#/properties/displayArticles/items/properties/availableSwatches",
+            "type": "array",
+            "title": "The Availableswatches Schema",
+            "items": {
+              "$id": "#/properties/displayArticles/items/properties/availableSwatches/items",
+              "type": "object",
+              "title": "The Items Schema",
+              "required": [
+                "colour",
+                "fabricImageResource",
+                "fabricUrl",
+                "articleCode",
+                "castorArticleId"
+              ],
+              "properties": {
+                "colour": {
+                  "$id": "#/properties/displayArticles/items/properties/availableSwatches/items/properties/colour",
+                  "type": "string",
+                  "title": "The Colour Schema",
+                  "default": "",
+                  "examples": [
+                    "b9babc"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "fabricImageResource": {
+                  "$id": "#/properties/displayArticles/items/properties/availableSwatches/items/properties/fabricImageResource",
+                  "type": "string",
+                  "title": "The Fabricimageresource Schema",
+                  "default": "",
+                  "examples": [
+                    "/fabric/2018/44653482-9FE8-497C-833D-5AB124B588E6.jpg"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "fabricUrl": {
+                  "$id": "#/properties/displayArticles/items/properties/availableSwatches/items/properties/fabricUrl",
+                  "type": "string",
+                  "title": "The Fabricurl Schema",
+                  "default": "",
+                  "examples": [
+                    "//lp.hm.com/hmprod?set=source[/fabric/2018/44653482-9FE8-497C-833D-5AB124B588E6.jpg]&call=url[file:/mobile/v1/fabric/sprite]"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "articleCode": {
+                  "$id": "#/properties/displayArticles/items/properties/availableSwatches/items/properties/articleCode",
+                  "type": "string",
+                  "title": "The Articlecode Schema",
+                  "default": "",
+                  "examples": [
+                    "92405-A"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "castorArticleId": {
+                  "$id": "#/properties/displayArticles/items/properties/availableSwatches/items/properties/castorArticleId",
+                  "type": "string",
+                  "title": "The Castorarticleid Schema",
+                  "default": "",
+                  "examples": [
+                    "0107713002"
+                  ],
+                  "pattern": "^(.*)$"
+                }
+              }
+            }
+          },
+          "trackingInfo": {
+            "$id": "#/properties/displayArticles/items/properties/trackingInfo",
+            "type": "object",
+            "title": "The Trackinginfo Schema"
+          },
+          "additionalImages": {
+            "$id": "#/properties/displayArticles/items/properties/additionalImages",
+            "type": "array",
+            "title": "The Additionalimages Schema"
+          },
+          "textualMarkers": {
+            "$id": "#/properties/displayArticles/items/properties/textualMarkers",
+            "type": "array",
+            "title": "The Textualmarkers Schema",
+            "items": {
+              "$id": "#/properties/displayArticles/items/properties/textualMarkers/items",
+              "type": "object",
+              "title": "The Items Schema",
+              "required": [
+                "markerType",
+                "markerText",
+                "markerDescription"
+              ],
+              "properties": {
+                "markerType": {
+                  "$id": "#/properties/displayArticles/items/properties/textualMarkers/items/properties/markerType",
+                  "type": "string",
+                  "title": "The Markertype Schema",
+                  "default": "",
+                  "examples": [
+                    "NEW_ARRIVALS"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "markerText": {
+                  "$id": "#/properties/displayArticles/items/properties/textualMarkers/items/properties/markerText",
+                  "type": "string",
+                  "title": "The Markertext Schema",
+                  "default": "",
+                  "examples": [
+                    "Neu"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "markerDescription": {
+                  "$id": "#/properties/displayArticles/items/properties/textualMarkers/items/properties/markerDescription",
+                  "type": "string",
+                  "title": "The Markerdescription Schema",
+                  "default": "",
+                  "examples": [
+                    ""
+                  ],
+                  "pattern": "^(.*)$"
+                }
+              }
+            }
+          },
+          "promoMarker": {
+            "$id": "#/properties/displayArticles/items/properties/promoMarker",
+            "type": "object",
+            "title": "The Promomarker Schema",
+            "required": [
+              "markerType",
+              "markerImageUrl",
+              "markerText"
+            ],
+            "properties": {
+              "markerType": {
+                "$id": "#/properties/displayArticles/items/properties/promoMarker/properties/markerType",
+                "type": "string",
+                "title": "The Markertype Schema",
+                "default": "",
+                "examples": [
+                  "OFFER"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "markerImageUrl": {
+                "$id": "#/properties/displayArticles/items/properties/promoMarker/properties/markerImageUrl",
+                "type": "string",
+                "title": "The Markerimageurl Schema",
+                "default": "",
+                "examples": [
+                  "//lp.hm.com/hmprod?set=text[12U002C99],active[true],size[50],language[de]&call=url[file:/text/promotionMarker]"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "markerText": {
+                "$id": "#/properties/displayArticles/items/properties/promoMarker/properties/markerText",
+                "type": "string",
+                "title": "The Markertext Schema",
+                "default": "",
+                "examples": [
+                  "12,99"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          },
+          "productMarker": {
+            "$id": "#/properties/displayArticles/items/properties/productMarker",
+            "type": "object",
+            "title": "The Productmarker Schema",
+            "required": [
+              "markerType",
+              "markerText",
+              "markerDescription"
+            ],
+            "properties": {
+              "markerType": {
+                "$id": "#/properties/displayArticles/items/properties/productMarker/properties/markerType",
+                "type": "string",
+                "title": "The Markertype Schema",
+                "default": "",
+                "examples": [
+                  "PREMIUM_QUALITY"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "markerText": {
+                "$id": "#/properties/displayArticles/items/properties/productMarker/properties/markerText",
+                "type": "string",
+                "title": "The Markertext Schema",
+                "default": "",
+                "examples": [
+                  "PREMIUM QUALITY"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "markerDescription": {
+                "$id": "#/properties/displayArticles/items/properties/productMarker/properties/markerDescription",
+                "type": "string",
+                "title": "The Markerdescription Schema",
+                "default": "",
+                "examples": [
+                  ""
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          },
+          "priceInfo": {
+            "$id": "#/properties/displayArticles/items/properties/priceInfo",
+            "type": "object",
+            "title": "The Priceinfo Schema",
+            "required": [
+              "formattedPrice",
+              "onSale",
+              "price",
+              "currencyIso",
+              "currencySymbol",
+              "prefixCurrencySymbol",
+              "suffixCurrencySymbol"
+            ],
+            "properties": {
+              "formattedPrice": {
+                "$id": "#/properties/displayArticles/items/properties/priceInfo/properties/formattedPrice",
+                "type": "string",
+                "title": "The Formattedprice Schema",
+                "default": "",
+                "examples": [
+                  "12,99"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "onSale": {
+                "$id": "#/properties/displayArticles/items/properties/priceInfo/properties/onSale",
+                "type": "boolean",
+                "title": "The Onsale Schema",
+                "default": false,
+                "examples": [
+                  false
+                ]
+              },
+              "price": {
+                "$id": "#/properties/displayArticles/items/properties/priceInfo/properties/price",
+                "type": "number",
+                "title": "The Price Schema",
+                "default": 0.0,
+                "examples": [
+                  12.99
+                ]
+              },
+              "currencyIso": {
+                "$id": "#/properties/displayArticles/items/properties/priceInfo/properties/currencyIso",
+                "type": "string",
+                "title": "The Currencyiso Schema",
+                "default": "",
+                "examples": [
+                  "EUR"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "currencySymbol": {
+                "$id": "#/properties/displayArticles/items/properties/priceInfo/properties/currencySymbol",
+                "type": "string",
+                "title": "The Currencysymbol Schema",
+                "default": "",
+                "examples": [
+                  "EUR"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "prefixCurrencySymbol": {
+                "$id": "#/properties/displayArticles/items/properties/priceInfo/properties/prefixCurrencySymbol",
+                "type": "string",
+                "title": "The Prefixcurrencysymbol Schema",
+                "default": "",
+                "examples": [
+                  ""
+                ],
+                "pattern": "^(.*)$"
+              },
+              "suffixCurrencySymbol": {
+                "$id": "#/properties/displayArticles/items/properties/priceInfo/properties/suffixCurrencySymbol",
+                "type": "string",
+                "title": "The Suffixcurrencysymbol Schema",
+                "default": "",
+                "examples": [
+                  ""
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          },
+          "stockState": {
+            "$id": "#/properties/displayArticles/items/properties/stockState",
+            "type": "string",
+            "title": "The Stockstate Schema",
+            "default": "",
+            "examples": [
+              "IN_STOCK"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "assortmentState": {
+            "$id": "#/properties/displayArticles/items/properties/assortmentState",
+            "type": "string",
+            "title": "The Assortmentstate Schema",
+            "default": "",
+            "examples": [
+              "CURRENT"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "colourDescription": {
+            "$id": "#/properties/displayArticles/items/properties/colourDescription",
+            "type": "string",
+            "title": "The Colourdescription Schema",
+            "default": "",
+            "examples": [
+              "Hellgrau"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "activityArticleNumber": {
+            "$id": "#/properties/displayArticles/items/properties/activityArticleNumber",
+            "type": "string",
+            "title": "The Activityarticlenumber Schema",
+            "default": "",
+            "examples": [
+              "547486"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "sizes": {
+            "$id": "#/properties/displayArticles/items/properties/sizes",
+            "type": "array",
+            "title": "The Sizes Schema",
+            "items": {
+              "$id": "#/properties/displayArticles/items/properties/sizes/items",
+              "type": "object",
+              "title": "The Items Schema",
+              "required": [
+                "stockSize",
+                "sizeName",
+                "stockState",
+                "sizeRowId",
+                "sdsSizeCode"
+              ],
+              "properties": {
+                "stockSize": {
+                  "$id": "#/properties/displayArticles/items/properties/sizes/items/properties/stockSize",
+                  "type": "string",
+                  "title": "The Stocksize Schema",
+                  "default": "",
+                  "examples": [
+                    "050"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "sizeName": {
+                  "$id": "#/properties/displayArticles/items/properties/sizes/items/properties/sizeName",
+                  "type": "string",
+                  "title": "The Sizename Schema",
+                  "default": "",
+                  "examples": [
+                    "50x60"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "stockState": {
+                  "$id": "#/properties/displayArticles/items/properties/sizes/items/properties/stockState",
+                  "type": "string",
+                  "title": "The Stockstate Schema",
+                  "default": "",
+                  "examples": [
+                    "UNDETERMINED"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "sizeRowId": {
+                  "$id": "#/properties/displayArticles/items/properties/sizes/items/properties/sizeRowId",
+                  "type": "string",
+                  "title": "The Sizerowid Schema",
+                  "default": "",
+                  "examples": [
+                    "08"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "sdsSizeCode": {
+                  "$id": "#/properties/displayArticles/items/properties/sizes/items/properties/sdsSizeCode",
+                  "type": "string",
+                  "title": "The Sdssizecode Schema",
+                  "default": "",
+                  "examples": [
+                    "001"
+                  ],
+                  "pattern": "^(.*)$"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
