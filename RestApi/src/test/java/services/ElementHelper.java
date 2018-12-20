@@ -1,9 +1,11 @@
 package services;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
 import testPackage.BaseClass;
 
 import java.util.List;
@@ -15,20 +17,27 @@ public class ElementHelper {
 
     public ElementHelper(String res) {
         response = res;
-        jsonPath = baseClass.getJsonPathString(res);
-        System.out.println(jsonPath);
     }
 
     public static ElementHelper getInstance(String res){
         return new ElementHelper(res);
     }
 
-    public ElementHelper in(String jpath){
+    public ElementHelper inGson(String jpath){
+        jsonPath = baseClass.getJsonPathString(response);
         Object o = jsonPath.getJsonObject(jpath);
         Gson gson = new GsonBuilder().serializeNulls().create();
         String json = gson.toJson(o);
         return new ElementHelper(json);
     }
+    public ElementHelper inJackson(String jpath) throws JsonProcessingException {
+        jsonPath = baseClass.getJsonPathString(response);
+        Object o = jsonPath.getJsonObject(jpath);
+        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        String json = ow.writeValueAsString(o);
+        return new ElementHelper(json);
+    }
+
 
 
     public boolean doElementExist(String phrase) {

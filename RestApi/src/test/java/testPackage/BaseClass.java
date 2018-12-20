@@ -96,7 +96,6 @@ public class BaseClass {
         }
         response.then().log().ifError();
         response.then().spec(RESPONSE_SPEC).extract().response();
-        System.out.println(response);
         return response;
     }
 

@@ -1,6 +1,7 @@
 package testPackage;
 
 import Utilities.Constants;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.RestAssured;
 import io.restassured.module.jsv.JsonSchemaValidatorSettings;
 import io.restassured.path.json.JsonPath;
@@ -105,7 +106,7 @@ public class FetchDA extends BaseClass {
 
 
     @Test
-    public void getFetchDA2() {
+    public void getFetchDA2() throws JsonProcessingException {
         parameter.put("deviceType", "desktop");
         parameter.put("includeCategory", "false");
         setEndPoint(Endpoints.FETCHDA_API);
@@ -122,11 +123,11 @@ public class FetchDA extends BaseClass {
         System.out.println("---------this is list of articles---- "+product3);
        // Assert.assertEquals(test,hasItem(050));
         boolean present = fetchDAService.doDisplayProductFieldsExist(response);
-        System.out.println(present);
         Assert.assertTrue(present);
-        boolean present1 = fetchDAService.doAvailableSizeInfoExist(response);
-        System.out.println(present1);
+        boolean present1 = fetchDAService.doDisplayProductFieldsExist1(response);
         Assert.assertTrue(present1);
+        boolean present2 = fetchDAService.doAvailableSizeInfoExist(response);
+        Assert.assertTrue(present2);
     }
 
     @Test
