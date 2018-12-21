@@ -41,18 +41,21 @@ public class FetchDA extends BaseClass {
     Response res;
     FetchDAService fetchDAService = new FetchDAService();
 
+    private static final String JSON_PATH_DISPLAY_ARTICLES = "displayArticles";
+    private static final String JSON_PATH_DISPLAY_ARTICLES_ARRAY = "displayArticles[{number}]";
+
     @BeforeMethod
     public void setUp() {
         parameter = new HashMap<String, String>();
         RestAssured.config = config().decoderConfig(decoderConfig().useNoWrapForInflateDecoding(true));
         reqSpec = getRequestSpecification();
         reqSpec.basePath(Path.BASE_PATH);
-        reqSpec.queryParam("productNumbers", "70745-B");
+        reqSpec.queryParam("productNumbers", "54690");
         resSpec = getResponseSpecification();
-        JsonSchemaValidator = jsonSchemaSettings();
+      //  JsonSchemaValidator = jsonSchemaSettings();
     }
 
-    @AfterMethod
+    //@AfterMethod
     public void tearDown() {
         resetSchemaSettings();
     }
@@ -113,11 +116,12 @@ public class FetchDA extends BaseClass {
         res = getResponse(createQueryParam(reqSpec, parameter), "get");
         jsonPath = getJsonPath(res);
         String response = res.asString();
-        String product = jsonPath.get("displayArticles[0].productNumber");
-        List test = jsonPath.getList("displayArticles[10].sizes.stockSize");
-        String product1 =jsonPath.and().getString("displayArticles[0].productNumber");
-        boolean product2 =jsonPath.getBoolean("displayArticles[0].priceInfo.onSale");
-        double product3 =jsonPath.getDouble("displayArticles[0].priceInfo.price");
+        jsonPath.setRoot("displayArticles[0]");
+        String product = jsonPath.get("productNumber");
+        List test = jsonPath.getList("sizes.stockSize");
+        String product1 =jsonPath.and().getString("productNumber");
+        boolean product2 =jsonPath.getBoolean("priceInfo.onSale");
+        double product3 =jsonPath.getDouble("priceInfo.price");
         //System.out.println(jsonPath.getJsonObject("displayArticles[0]"));
         //    jsonPath.get();
         System.out.println("---------this is list of articles---- "+product3);
@@ -128,6 +132,27 @@ public class FetchDA extends BaseClass {
         Assert.assertTrue(present1);
         boolean present2 = fetchDAService.doAvailableSizeInfoExist(response);
         Assert.assertTrue(present2);
+    }
+
+    @Test
+    public void getFetchDA3() {
+        parameter.put("deviceType", "desktop");
+        parameter.put("includeCategory", "false");
+        setEndPoint(Endpoints.FETCHDA_API);
+        res = getResponse(createQueryParam(reqSpec, parameter), "get");
+        jsonPath = getJsonPath(res);
+        String displayArticles = jsonPath.get("displayArticles").toString();
+        String[] splitedDisplayArticles = displayArticles.split("availableSwatches");
+        int totalDisplayArticles = splitedDisplayArticles.length;
+        for(int i=0;i<totalDisplayArticles-1;i++) {
+            jsonPath.setRoot(JSON_PATH_DISPLAY_ARTICLES_ARRAY.replace("{number}", Integer.toString(i)));
+            String product = jsonPath.get("productNumber");
+            Assert.assertEquals(product, "54690");
+      /*      List test = jsonPath.getList("sizes.stockSize");
+            String product1 = jsonPath.and().getString("productNumber");
+            boolean product2 = jsonPath.getBoolean("priceInfo.onSale");
+            double product3 = jsonPath.getDouble("priceInfo.price");*/
+        }
     }
 
     @Test
